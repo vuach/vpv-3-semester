@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1420" height="860" viewBox="0 0 1420 860">
+<title>EDC-AMP V1 — схема подключения датчиков и Hantek DSO2D15</title>
+<desc>Две катушки L1 и L2 подключены к J2/J3 платы EDC-AMP V1; генератор Hantek к J1, усиленная разность к CH1, опорный сигнал к CH2, питание через J6.</desc>
+<style>text{font-family:Arial,DejaVu Sans,sans-serif;fill:#172b35} .h{font-size:30px;font-weight:700}.sub{font-size:18px;fill:#496471}.part{font-size:20px;font-weight:700}.note{font-size:16px}.small{font-size:14px}.box{fill:#f3f8f9;stroke:#4e8790;stroke-width:2}.board{fill:#f8f9ff;stroke:#717fc1;stroke-width:2.6}.sig{fill:none;stroke:#1468b6;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.gnd{fill:none;stroke:#656d76;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}.orange{fill:none;stroke:#bc7734;stroke-width:2.6}.net{fill:#1468b6;font-size:15px;font-weight:600} .pin{fill:#fff;stroke:#1468b6;stroke-width:2} .warn{fill:#fff9ed;stroke:#c49647;stroke-width:1.6}</style>
+<rect width="1420" height="860" fill="#fff"/>
+<text x="40" y="50" class="h">Вихретоковый сканер — подключение EDC-AMP V1</text>
+<text x="40" y="79" class="sub">Ender-3 · две катушки · AD8421 · Hantek DSO2D15 · предварительная схема подключения</text>
+
+<rect class="box" x="25" y="145" width="270" height="180" rx="14"/>
+<text x="45" y="177" class="part">L1 — измерительная</text>
+<text x="45" y="200" class="note">Подвижная катушка над</text><text x="45" y="220" class="note">пластиной с дефектами</text>
+<path class="orange" d="M78 257 h19 q10 -26 20 0 q10 -26 20 0 q10 -26 20 0 q10 -26 20 0 h16"/>
+<text x="45" y="301" class="small">A → DRIVE  ·  B → SENSE_RAW</text>
+<rect class="box" x="25" y="363" width="270" height="180" rx="14"/>
+<text x="45" y="395" class="part">L2 — эталонная</text>
+<text x="45" y="418" class="note">Над целым образцом</text><text x="45" y="438" class="note">из аналогичного металла</text>
+<path class="orange" d="M78 478 h19 q10 -26 20 0 q10 -26 20 0 q10 -26 20 0 q10 -26 20 0 h16"/>
+<text x="45" y="519" class="small">A → DRIVE  ·  B → REF_RAW</text>
+
+<rect class="board" x="340" y="125" width="735" height="600" rx="15"/>
+<text x="368" y="164" class="part">Плата EDC-AMP V1 (однослойная, AD8421)</text>
+<rect class="box" x="370" y="206" width="215" height="105" rx="10"/>
+<text x="385" y="232" class="part">J2 · датчик L1</text>
+<text x="385" y="258" class="net">1: DRIVE</text>
+<text x="385" y="283" class="net">2: SENSE_RAW</text>
+<rect class="box" x="370" y="369" width="215" height="105" rx="10"/>
+<text x="385" y="396" class="part">J3 · эталон L2</text>
+<text x="385" y="423" class="net">1: DRIVE</text>
+<text x="385" y="448" class="net">2: REF_RAW</text>
+<path class="sig" d="M295 267 H342 V258 H370 M295 488 H328 V445 H370"/>
+<path class="sig" d="M580 283 H650 M580 448 H650"/>
+
+<rect class="box" x="652" y="205" width="176" height="105" rx="10"/>
+<text x="668" y="236" class="part">R1 = 100 Ω</text>
+<text x="668" y="265" class="note">R3 = 33 Ω</text>
+<text x="668" y="291" class="net">IN_P → U1.4</text>
+<rect class="box" x="652" y="370" width="176" height="105" rx="10"/>
+<text x="668" y="402" class="part">R2 = 100 Ω</text>
+<text x="668" y="429" class="note">R4 = 33 Ω</text>
+<text x="668" y="455" class="net">IN_N → U1.1</text>
+<rect x="875" y="256" width="170" height="235" rx="10" fill="#dbeee9" stroke="#398879" stroke-width="2"/>
+<text x="892" y="288" class="part">U1 · AD8421</text>
+<text x="892" y="320" class="note">4: +IN</text><text x="892" y="345" class="note">1: −IN</text>
+<text x="892" y="370" class="note">2,3: RG</text>
+<text x="892" y="395" class="note">6: REF → AGND</text>
+<text x="892" y="420" class="note">8: +9 V  /  5: −9 V</text>
+<text x="892" y="447" class="note">7: OUT</text>
+<path class="sig" d="M828 270 H875 M828 430 H850 V343 H875"/>
+<rect class="box" x="380" y="535" width="305" height="123" rx="10"/>
+<text x="397" y="563" class="part">J1 · генератор Hantek</text>
+<text x="397" y="591" class="net">центр BNC → DRIVE</text>
+<text x="397" y="620" class="note">экран BNC → AGND</text>
+<text x="397" y="644" class="small">DRIVE возбуждает обе катушки</text>
+<rect class="box" x="720" y="546" width="327" height="126" rx="10"/>
+<text x="736" y="573" class="part">Выбор усиления (RG)</text>
+<text x="736" y="598" class="note">все разомкнуты: ×1</text>
+<text x="736" y="622" class="note">R5 1кΩ: ×10,9 · R6 499Ω: ×20,84</text>
+<text x="736" y="648" class="note">R7 200Ω: ×50,5 · только 1 ключ!</text>
+<path class="sig" d="M925 491 V519 H890 V545"/>
+<rect class="box" x="855" y="693" width="190" height="24" rx="5"/>
+<text x="868" y="710" class="small">J6: +9 В | AGND | −9 В</text>
+<path class="gnd" d="M350 682 H715"/><text x="380" y="706" class="small">AGND: J1/J4/J5, R1/R2, U1.6, центр питания</text>
+
+<rect class="box" x="1120" y="150" width="275" height="355" rx="14"/>
+<text x="1140" y="187" class="part">Hantek DSO2D15</text>
+<rect x="1150" y="214" width="214" height="95" rx="8" fill="#1a2b3e"/>
+<path d="M1160 265 q15 -42 30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="#ffc850" stroke-width="3"/>
+<text x="1140" y="354" class="note">AWG: генератор → J1</text>
+<text x="1140" y="386" class="note">CH1: усиленная разность</text>
+<text x="1140" y="418" class="note">CH2: опорный DRIVE</text>
+<text x="1140" y="470" class="small">Все экраны BNC → AGND</text>
+<path class="sig" d="M1120 339 H1100 V562 H685"/>
+<path class="sig" d="M1045 445 H1086 V382 H1120"/>
+<path class="sig" d="M1045 460 H1098 V415 H1120"/>
+<text x="1072" y="379" class="small">J4</text><text x="1072" y="450" class="small">J5</text>
+<text x="1088" y="534" class="small">J1</text>
+<rect class="box" x="1120" y="549" width="275" height="165" rx="14"/>
+<text x="1140" y="581" class="part">Питание: две батареи 9 В</text>
+<text x="1140" y="612" class="note">верхний вывод: +9 В</text>
+<text x="1140" y="644" class="note">средняя точка: AGND</text>
+<text x="1140" y="675" class="note">нижний вывод: −9 В</text>
+<path class="orange" d="M1120 703 H1047"/>
+<rect class="warn" x="25" y="759" width="1370" height="72" rx="8"/>
+<text x="43" y="786" class="part">Важно: функциональная схема, не чертёж дорожек PCB.</text>
+<text x="43" y="813" class="note">Перед подачей питания проверить распиновку конкретных BNC, непрерывность AGND, отсутствие КЗ и соответствие netlist EasyEDA.</text>
+</svg>
